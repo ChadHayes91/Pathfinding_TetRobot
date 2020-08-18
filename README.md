@@ -2,7 +2,7 @@
 
 Link to Code: [https://github.com/ChadHayes91/Graphics_AStar_TetRobot](https://github.com/ChadHayes91/Graphics_AStar_TetRobot)
 
-The general goal of this project is to create an almost spider-looking robot that pathfinds to the user's mouse location. Movement is somewhat limited, imagine a regular tetrahedron which "tumbles" from the top most vertex (the only vertex in a tetrahedron which is not a part of the base equilateral triangle); it can tumble to the right, left, or opposite. 
+The general goal of this project is to create an almost spider-looking robot that pathfinds to the user's mouse location. Movement is rather limited to only three possibilities. Imagine a regular tetrahedron which "tumbles" from the top most vertex (the only vertex in a tetrahedron which is not a part of the base equilateral triangle); it can tumble to the right, left, or opposite. The three figures below show these three possible movements; the grey tetrahedron would be the final location after movement and the different colored vertices show 
 
 
 <p align="center">
@@ -11,23 +11,9 @@ The general goal of this project is to create an almost spider-looking robot tha
   <img width="200" height="200" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/Tet_Oppo.PNG?raw=true">
 </p>
 <p align = "center">
-   Figure 1: example of a left move &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   Figure 2: example of a right move &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   FIgure 3: example of an opposite move
-</p>
-
-<p align="center">
-  <img width="280" height="280" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/Tet_Right.PNG?raw=true">
-</p>
-<p align = "center">
-   Figure 1: example of a right move
-</p>
-
-<p align="center">
-  <img width="280" height="280" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/Tet_Oppo.PNG?raw=true">
-</p>
-<p align = "center">
-   Figure 1: example of an opposite move
+   Figure 1: left move &nbsp;
+   Figure 2: right move &nbsp;
+   Figure 3: opposite move
 </p>
 
 

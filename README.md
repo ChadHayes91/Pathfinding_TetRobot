@@ -6,9 +6,9 @@ The general goal of this project is to create an almost spider-looking robot tha
 
 
 <p align="center">
-  <img width="250" height="250" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/Tet_Left.PNG?raw=true">
-  <img width="250" height="250" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/Tet_Right.PNG?raw=true">
-  <img width="250" height="250" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/Tet_Oppo.PNG?raw=true">
+  <img width="200" height="200" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/Tet_Left.PNG?raw=true">
+  <img width="200" height="200" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/Tet_Right.PNG?raw=true">
+  <img width="200" height="200" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/Tet_Oppo.PNG?raw=true">
 </p>
 <p align = "center">
    Figure 1: example of a left move &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

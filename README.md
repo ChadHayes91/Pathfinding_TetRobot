@@ -20,12 +20,13 @@ I've provided below visualizations of the three possible movements: right, left,
    Figure 3: opposite move
 </p>
 
-Computing a move is simple:  one of the edges of the original tetrahedron remains the same (and therefore, two vertices remain in the same position) and since we need to maintain a base equilateral triangle we can rotate the unmoving edge 60 degrees to find the location of the final vertex in the base equilateral triangle. We rotate 60 degrees since all angles in an equilateral triangle are 60 degrees. Now that we know the location of three vertices, we can re-compute the location of the top vertex using the same formula mentioned above.
+Computing a move is simple:  one of the edges of the original tetrahedron remains the same (and therefore, two vertices remain in the same position) and since we need to maintain a base equilateral triangle we can rotate the unmoving edge 60 degrees to find the location of the final vertex in the base equilateral triangle. We rotate 60 degrees since all angles in an equilateral triangle are 60 degrees. Now that we know the location of the three vertices which form the base equilateral triangle, we can re-compute the location of the top vertex using the same formula (s * sqrt(2 / 3)) mentioned above.
 
 Note the formula for rotating a vector around a point with an accompanying explaination and proof can be found here:
 [https://matthew-brett.github.io/teaching/rotation_2d.html](https://matthew-brett.github.io/teaching/rotation_2d.html)
 
-#### Phase Two: Animating Movement
+#### Phase Two: Animation
+At this point, we've simply used geometry/trigonometry to compute the starting and end points for all four vertices for each possible movement. However, we need to know the location of each vertex for our current tetrahedron at each frame in order to animate our robot. As previously mentioned, for each possible movement, two vertices stay in the same location (which two vertices depends on the movement direction). Additionally, movement is consistent regardless of the direction: the vertex currently at the top of the tetrahedron moves to the furthest position, and the vertex furthest from the edge that remains in the same location will become the new vertex at the top of the tetrahedron. Since we need to preserve the structure of the regular tetrahedron at each frame, we can compute the position of the two moving vertices at each frame by using Rodrigues’ rotation formula:
 
 
 #### Phase Three: Leg Computations and Inverse Kinematics

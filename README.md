@@ -5,7 +5,7 @@ Link to Code: [https://github.com/ChadHayes91/Graphics_AStar_TetRobot](https://g
 This general goal of this project is to create an almost spider-looking robot that pathfinds to the user's mouse location. Movement is constrained to only three directions: right, left, or opposite, which is accomplished by the regular tetrahedron core "tumbling" from the top-most vertex (the only vertex in a tetrahedron which is not a part of the base equilateral triangle). This project was split into four "phases" which start simply and build off each other which I've outlined below. The end result of this project (and its final visualization) can be found in the YouTube video posted at the bottom of this page. 
 
 #### Phase One: Base Tetrahedron Creation and Movement Computations
-We start by creating a circle of radius 200 (200 units in Processing) centered at the origin (point (0, 0, 0)) and create the three vertices at each 120 degree increment (120, 240, 360 or 0 degrees). These three vertices form an equilateral triangle which can serve as the base for the regular tetrahedron. The final vertex (the top vertex) of this tetrahderon can be computed by applying the pythagorean theorem: s * sqrt(2 / 3) where s is the length of an arbitrary side of our base equilateral triangle (since all sides have the same length). Additionally, the centroid of this tetrahedron is computed by taking the average of all four vertices.
+We start by creating a circle of radius 200 (200 units in Processing) centered at the origin (point (0, 0, 0)) and create the three vertices at each 120 degree increment (120, 240, 360 or 0 degrees). These three vertices form an equilateral triangle which can serve as the base for the regular tetrahedron. The final vertex (the top vertex) of this tetrahderon can be computed by applying the pythagorean theorem: s * sqrt(2 / 3) where s is the length of an arbitrary side of our base equilateral triangle (since all sides have the same length). Finally, the centroid of this tetrahedron is computed by taking the average of all four vertices.
 
 I've provided below visualizations of the three possible movements: right, left, and opposite. The grey tetrahedron is the ending position and each vertex is colored to visually show how each vertex changes positions.
 
@@ -20,16 +20,17 @@ I've provided below visualizations of the three possible movements: right, left,
    Figure 3: opposite move
 </p>
 
-Computing a move is simple:  one of the edges of the original tetrahedron remains the same and since we need to maintain a base equilateral triangle we can rotate the unmoving edge 60 degrees to find the location of the final vertex in the base equilateral triangle. We can re-compute the location of the top vertex using the same formula mentioned above.
+Computing a move is simple:  one of the edges of the original tetrahedron remains the same (and therefore, two vertices remain in the same position) and since we need to maintain a base equilateral triangle we can rotate the unmoving edge 60 degrees to find the location of the final vertex in the base equilateral triangle. We rotate 60 degrees since all angles in an equilateral triangle are 60 degrees. Now that we know the location of three vertices, we can re-compute the location of the top vertex using the same formula mentioned above.
 
 Note the formula for rotating a vector around a point with an accompanying explaination and proof can be found here:
 [https://matthew-brett.github.io/teaching/rotation_2d.html](https://matthew-brett.github.io/teaching/rotation_2d.html)
 
-#### Phase Two: Base Tetrahedron Creation and Movement Computations
+#### Phase Two: Animating Movement
 
-#### Phase Three: Base Tetrahedron Creation and Movement Computations
 
-#### Phase Four: Base Tetrahedron Creation and Movement Computations
+#### Phase Three: Leg Computations and Inverse Kinematics
+
+#### Phase Four: Pathfinding Using A*
 
 
 

@@ -22,7 +22,7 @@ I've provided below visualizations of the three possible movements: right, left,
    Figure 3: opposite move
 </p>
 
-Computing a move is simple:  one of the edges of the original tetrahedron remains the same (and therefore, two vertices remain in the same position) and since we need to maintain a base equilateral triangle we can rotate the unmoving edge 60 degrees to find the location of the final vertex in the base equilateral triangle. We rotate 60 degrees since all angles in an equilateral triangle are 60 degrees. Now that we know the location of the three vertices which form the base equilateral triangle, we can re-compute the location of the top vertex using the same formula ($$s \times \sqrt{\frac{2}{3}}$$) mentioned above.
+Computing a move is simple:  one of the edges of the original tetrahedron remains the same (and therefore, two vertices remain in the same position) and since we need to maintain a base equilateral triangle we can rotate the unmoving edge 60 degrees to find the location of the final vertex in the base equilateral triangle. We rotate 60 degrees since all angles in an equilateral triangle are 60 degrees. Now that we know the location of the three vertices which form the base equilateral triangle, we can re-compute the location of the top vertex using the same formula $$\big(s \times \sqrt{\frac{2}{3}}\big)$$ mentioned above.
 
 Note the formula for rotating a vector around a point with an accompanying explaination and proof can be found here:
 [https://matthew-brett.github.io/teaching/rotation_2d.html](https://matthew-brett.github.io/teaching/rotation_2d.html)

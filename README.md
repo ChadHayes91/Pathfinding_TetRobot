@@ -7,7 +7,7 @@ Link to Code: [https://github.com/ChadHayes91/Graphics_AStar_TetRobot](https://g
 This general goal of this project is to create an almost spider-looking robot that pathfinds to the user's mouse location. Movement is constrained to only three directions: right, left, or opposite, which is accomplished by the regular tetrahedron core "tumbling" from the top-most vertex (the only vertex in a tetrahedron which is not a part of the base equilateral triangle). This project was split into four "phases" which start simply and build off each other which I've outlined below. The end result of this project (and its final visualization) can be found in the YouTube video posted at the bottom of this page. 
 
 #### Phase One: Base Tetrahedron Creation and Movement Computations
-We start by creating a circle of radius 200 (200 units in Processing) centered at the origin (point (0, 0, 0)) and create the three vertices at each 120 degree increment (120, 240, 360 or 0 degrees). These three vertices form an equilateral triangle which can serve as the base for the regular tetrahedron. This uses the fact that an equaliteral triangle can be inscribed inside a circle. The final vertex (the top vertex) of this tetrahderon can be computed by applying the pythagorean theorem: $$s \times \sqrt{\frac{2}{3}}$$ where $$s$$ is the length of an arbitrary side of our base equilateral triangle (since all sides have the same length). Finally, the centroid of this tetrahedron is computed by taking the arithmetic average of all four vertices, or in other words, the geometric point which computed by taking the average of all $$x$$, $$y$$, and $$z$$ coordinates.
+We start by creating a circle of radius 200 (200 units in Processing) centered at the origin (point (0, 0, 0)) and create the three vertices at each 120 degree increment (120 or $$\frac{2\pi}{3}$$, 240 or $$\frac{4\pi}{3}$$, 360 degrees or $$2\pi$$ radians). These three vertices form an equilateral triangle which can serve as the base for the regular tetrahedron. This uses the fact that an equaliteral triangle can be inscribed inside a circle. The final vertex (the top vertex) of this tetrahderon can be computed by applying the pythagorean theorem: $$s \times \sqrt{\frac{2}{3}}$$ where $$s$$ is the length of an arbitrary side of our base equilateral triangle (since all sides have the same length). Finally, the centroid of this tetrahedron is computed by taking the arithmetic average of all four vertices, or in other words, the geometric point which computed by taking the average of all $$x$$, $$y$$, and $$z$$ coordinates.
 
 I've provided below visualizations of the three possible movements: right, left, and opposite. The grey tetrahedron is the ending position and each vertex is colored to visually show how each vertex changes positions.
 
@@ -34,10 +34,11 @@ $$W = \cos(\alpha)U + \sin(\alpha)\underline{V} \times U + (1 - \cos(\alpha)\big
 </p>
 Where
 * $$U$$ is the vector we are rotating
-* $$\underline{V}$$ is the axis of rotation (normalized)
+* $$\underline{V}$$ is the axis of rotation; this is represented as a normalized vector (its magnitude is 1)
+* $$\alpha$$ is the angle that we're rotating $$U$$ around $$\underline{V}$$ 
 * $$\times$$ represents the cross product operation
 * $$\cdot$$ represents the dot product operation
-* $$W$$ is the resulting vector after rotating $$U$$ around the axis of rotation, $$\underline{V}$$
+* $$W$$ is the resulting vector after rotating $$U$$ around the axis of rotation, $$\underline{V}$$ $$\alpha$$ radians
 
 
 #### Phase Three: Leg Computations and Inverse Kinematics

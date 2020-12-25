@@ -45,6 +45,7 @@ In our example, consider the vector (or edge of our base equilateral triangle) t
 
 Further information about Rodrigues' formula as well as a proof can be found here: [https://www.youtube.com/watch?v=Fh3nMi87cB8](https://www.youtube.com/watch?v=Fh3nMi87cB8). 
 <br />
+<br />
 Note that the formula I've used above uses the right-hand rule and the linked video computes rotation in the opposite direction.
 
 #### Phase Three: Leg Computations and Inverse Kinematics

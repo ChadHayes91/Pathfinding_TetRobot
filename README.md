@@ -30,17 +30,18 @@ Note the formula for rotating a vector around a point with an accompanying expla
 #### Phase Two: Animation
 At this point, we've used geometry and trigonometry to compute the starting and end points for all four vertices for each possible movement. However, we need to know the location of each vertex for our current tetrahedron at each frame in order to animate our robot. As previously mentioned, for each possible movement, two vertices stay in the same location (which two vertices depends on the movement direction). Additionally, movement is consistent regardless of the direction: the vertex currently at the top of the tetrahedron moves to the furthest position, and the vertex furthest from the edge that remains in the same location will become the new vertex at the top of the tetrahedron. Since we need to preserve the structure of the regular tetrahedron at each frame, we can compute the position of the two moving vertices at each frame by using Rodrigues’ rotation formula:
 <p align="center">
-$$W = \cos(\alpha)U + \sin(\alpha)\underline{V} \times U + (1 - \cos(\alpha)\big(\underline{V} \cdot U)\underline{V}$$
+$$W = \cos(\alpha)U + \sin(\alpha)\underline{V} \times U + (1 - \cos(\alpha))\big(\underline{V} \cdot U)\underline{V}$$
 </p>
+
 Where:
 * $$U$$ is the vector we are rotating
 * $$\underline{V}$$ is the axis of rotation; this is represented as a normalized vector (its magnitude is 1)
 * $$\alpha$$ is the angle that we're rotating $$U$$ around $$\underline{V}$$ 
 * $$\times$$ represents the cross product operation
 * $$\cdot$$ represents the dot product operation
-* $$W$$ is the resulting vector after rotating $$U$$ around the axis of rotation, $$\underline{V}$$ $$\alpha$$ radians
+* $$W$$ is the resulting vector after rotating $$U$$ around $$\underline{V}$$ for $$\alpha$$ radians
 
-In our example, consider the vector (or edge of our base equilateral triangle) that does not move at all during rotation. We can use normalize this vector and use it as our axis of rotation. Let's call this vector AB (where A and B are two vertices). We can name the top vertex T and consider the vector AT, this will be the vector we are rotating. Finally, we need to find $$\alpha$$; which can be done by taking the dot product of vector AT and the vector AF where F is the final vertex location calculated in the previous phase. Since the dot product can be interpreted in multiple ways: $$AT \cdot AF = AT.x * AF.x + AT.y * AF.y + AT.z * AF.z = |AT| |AF| cos(\alpha)$$, we can back into the angle between these two vectors.
+In our example, consider the vector (or edge of our base equilateral triangle) that does not move at all during rotation. We can use normalize this vector and use it as our axis of rotation. Let's call this vector AB (where A and B are two vertices). We can name the top vertex T and consider the vector AT, this will be the vector we are rotating. Finally, we need to find $$\alpha$$; which can be done by taking the dot product of vector AT and the vector AF where F is the final vertex location calculated in the previous phase. Since the dot product can be interpreted in multiple ways: $$AT \cdot AF = AT.x * AF.x + AT.y * AF.y + AT.z * AF.z = \left AT \right \left AF \right cos(\alpha)$$, we can back into the angle between these two vectors.
 
 #### Phase Three: Leg Computations and Inverse Kinematics
 

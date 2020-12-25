@@ -29,7 +29,15 @@ Note the formula for rotating a vector around a point with an accompanying expla
 
 #### Phase Two: Animation
 At this point, we've used geometry and trigonometry to compute the starting and end points for all four vertices for each possible movement. However, we need to know the location of each vertex for our current tetrahedron at each frame in order to animate our robot. As previously mentioned, for each possible movement, two vertices stay in the same location (which two vertices depends on the movement direction). Additionally, movement is consistent regardless of the direction: the vertex currently at the top of the tetrahedron moves to the furthest position, and the vertex furthest from the edge that remains in the same location will become the new vertex at the top of the tetrahedron. Since we need to preserve the structure of the regular tetrahedron at each frame, we can compute the position of the two moving vertices at each frame by using Rodrigues’ rotation formula:
+<p align="center">
 $$W = \cos(\alpha)U + \sin(\alpha)\underline{V} \times U + (1 - \cos(\alpha)\big(\underline{V} \cdot U)\underline{V}$$
+</p>
+Where
+* $$U$$ is the vector we are rotating
+* $$\underline{V}$$ is the axis of rotation (normalized)
+* $$\times$$ represents the cross product operation
+* $$\cdot$$ represents the dot product operation
+* $$W$$ is the resulting vector after rotating $$U$$ around the axis of rotation, $$\underline{V}$$
 
 
 #### Phase Three: Leg Computations and Inverse Kinematics

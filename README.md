@@ -43,7 +43,8 @@ Where:
 
 In our example, consider the vector (or edge of our base equilateral triangle) that does not move at all during rotation. We can use normalize this vector and use it as our axis of rotation. Let's call this vector AB (where A and B are two vertices). We can name the top vertex T and consider the vector AT, this will be the vector we are rotating. Finally, we need to find $$\alpha$$; which can be done by taking the dot product of vector AT and the vector AF where F is vertex T's final location after fully rotating calculated in the previous phase. Since the dot product can be interpreted in multiple ways: $$AT \cdot AF = AT.x * AF.x + AT.y * AF.y + AT.z * AF.z = \|AT\| \|AF\| cos(\alpha)$$, we can back into the angle between these two vectors. We can then divide $$\alpha$$ by the time between each frame to find where vector AT should be rendered at each frame.
 
-Further information about Rodrigues' formula as well as a proof can be found here: [https://www.youtube.com/watch?v=Fh3nMi87cB8](https://www.youtube.com/watch?v=Fh3nMi87cB8). $$\n$$
+Further information about Rodrigues' formula as well as a proof can be found here: [https://www.youtube.com/watch?v=Fh3nMi87cB8](https://www.youtube.com/watch?v=Fh3nMi87cB8). 
+<br />
 Note that the formula I've used above uses the right-hand rule and the linked video computes rotation in the opposite direction.
 
 #### Phase Three: Leg Computations and Inverse Kinematics

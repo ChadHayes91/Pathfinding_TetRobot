@@ -50,6 +50,13 @@ Note that the formula I've used above uses the right-hand rule and the linked vi
 
 #### Phase Three: Leg Computations and Inverse Kinematics
 
+NTD: double cross product: 
+HF x (0, 0, 1) = N
+HF x N = T (T is the direction)
+T * 0.6d (assume both leg components have same size)
+
+SLERP for animation
+
 #### Phase Four: Pathfinding Using A*
 
 

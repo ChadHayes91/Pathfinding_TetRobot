@@ -53,7 +53,7 @@ Note that the formula I've used above uses the right-hand rule and the linked vi
 Since we are inevitably animating a robot with legs instead of only a large tetrahedron, we no longer need to render the entire tetrahedron shown in the images above. We still compute the start and ending position of all vertices like the large tetrahedron was still there, but we now replace what's really rendered with a smaller tetrahedron centered around the centroid of the large tetrahedron. This new, smaller tetrahedron is used as the robot's core (now called TetRobot's core) where we will attach legs to. Computations for the TetRobot's core movement are conducted in the same manner as the ones mentioned above used for the large tetrhedron, but simply on a smaller scale.
 <br />
 <br />
-Next, we need to attach legs to each of the four vertices in our TetRobot core which involves some inverse mechanics. 
+Next, we need to attach legs to each of the four vertices in our TetRobot core which involves some inverse kinematics. Consider the vector HF which spans from a hip vertex (H) to the location of its closest corresponding "foot" (F). A "hip" vertex is one of the four vertices which define the TetRobot core. A "foot" point is one of the four vertices of the large, non-rendered tetrahedron. A straight line from the hip to the foot 
 
 NTD: double cross product: 
 HF x (0, 0, 1) = N

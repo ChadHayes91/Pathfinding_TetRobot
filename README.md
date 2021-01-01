@@ -55,19 +55,23 @@ Since we are inevitably animating a robot with legs instead of only a large tetr
 <br />
 Next, we need to attach legs to each of the four vertices in our TetRobot core which involves some inverse kinematics calculations. Consider the vector HF which spans from a hip vertex (H) to the location of its closest corresponding "foot" (F). A "hip" vertex is one of the four vertices which define the TetRobot core. A "foot" point is one of the four vertices of the large, non-rendered tetrahedron. A straight line from the hip to its closest corresponding foot is first constructed. However, using a leg as a straight line looks terribly unnatural, so we need to construct a bent leg. In order create a bent leg, consider the following steps:
 
-*Consider an arbitrary up vector named $$U$$ with magnitude 1: $$U = (0, 0, 1)$$
-*Compute the cross product $$HF \times U = N$$
-*Compute yet another cross product: $$HF \times N = T$$
-*The vector $$T$$ points in the direction we're interested in
-*Finally, normalize $$T$$ and multiply it by the scalar $$\big(\|HF\| * 0.6 \big) \underline{T} = K$$
-*K is now the geometric point of our knee; we can now store and render vectors $$HK$$ and $$KF$$ (hip to knee and knee to foot)
-*This process is repeated for all four legs
+* Consider an arbitrary up vector named $$U$$ with magnitude 1: $$U = (0, 0, 1)$$
+* Compute the cross product $$HF \times U = N$$
+* Compute yet another cross product: $$HF \times N = T$$
+* The vector $$T$$ points in the direction we're interested in
+* Finally, normalize $$T$$ and multiply it by the scalar $$\big(\|HF\| * 0.6 \big) \underline{T} = K$$
+* K is now the geometric point of our knee; we can now store and render vectors $$HK$$ and $$KF$$ (hip to knee and knee to foot)
+* This process is repeated for all four legs; I've provided a visualization below
 
 <p align="center">
-  <img width="200" height="200" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/Double_Cross_P3_Vis.PNG?raw=true">
+  <img width="400" height="400" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/Double_Cross_P3_Vis.PNG?raw=true">
 </p>
 <p align = "center">
-   Figure 4: Bent Leg Computations &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   Figure 4: Bent Leg Computations &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   Blue Vector: represents the hip to foot (HF) vector
+   Orange Vector: represents the up vector $$U$$
+   Red Vector: represents the vector $$N$$ outlined above: $$N = HF \times U$$
+   Green Vector: represents the vector $$T$$ outlined above: $$T = HF \times N$$
 </p>
 
 SLERP for animation

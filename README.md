@@ -64,7 +64,7 @@ Here are some images of the TetRobot core as well as the large tetrahedron from 
 </p>
 <p align = "center">
    Figure 4: TetRobot Core & Legs (1) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   Figure 5: TetRobot Core & Legs (2) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   Figure 5: TetRobot Core & Legs (2) 
 </p>
 
 However, using a leg as a straight line looks terribly unnatural, so we need to construct a bent leg. In order create a bent leg, consider the following steps:

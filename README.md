@@ -69,8 +69,8 @@ Next, we need to attach legs to each of the four vertices in our TetRobot core w
 <p align = "center">
    Figure 4: Bent Leg Computations &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <br />
    Blue Vector: represents the hip to foot (HF) vector &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <br />
-   Orange Vector: represents the up vector $$U$$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <br />
-   Red Vector: represents the vector $$N$$ outlined above: $$N = HF \times U$$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <br />
+   Orange Vector: represents the up vector $\underline{U}$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <br />
+   Red Vector: represents the vector $$N$$ outlined above: $$N = HF \times \underline{U}$$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <br />
    Green Vector: represents the vector $$T$$ outlined above: $$T = HF \times N$$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 

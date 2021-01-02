@@ -17,8 +17,8 @@ I've provided below visualizations of the three possible movements: right, left,
   <img width="200" height="200" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/Tet_Oppo.PNG?raw=true">
 </p>
 <p align = "center">
-   Figure 1: left move &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   Figure 2: right move &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   Figure 1: left move &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   Figure 2: right move &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    Figure 3: opposite move
 </p>
 
@@ -84,7 +84,7 @@ However, using a leg as a straight line looks terribly unnatural, so we need to 
    Figure 6: Bent Leg Computations &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <br />
 </p>
 In the figure above:
-* Blue Vector: represents the hip to foot (HF) vector
+* Blue Vector: represents the hip to foot ($$HF$$) vector
 * Orange Vector: represents the up vector $$\underline{U}$$
 * Red Vector: represents the vector $$N$$ outlined above: $$N = HF \times \underline{U}$$
 * Green Vector: represents the vector $$T$$ outlined above: $$T = HF \times N$$; $$T$$ is what we are searching for

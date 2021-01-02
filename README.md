@@ -78,12 +78,12 @@ In the figure above:
 Additionally, here are some images of the TetRobot core as well as the large tetrahedron from previous phases. As mentioned previously, the large tetrahedron will not be rendered in the final phase and is simply used to compute locations of the TetRobot's feet.
 
 <p align="center">
-  <img width="200" height="200" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/P2_RobotCore.PNG?raw=true">
-  <img width="200" height="200" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/P2_Core_2.PNG?raw=true">
+  <img width="250" height="250" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/P2_RobotCore.PNG?raw=true">
+  <img width="250" height="250" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/P2_Core_2.PNG?raw=true">
 </p>
 <p align = "center">
-   Figure 5: TetRobot Core \& Legs (1) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   Figure 6: TetRobot Core \& Legs (2) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   Figure 5: TetRobot Core & Legs (1) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   Figure 6: TetRobot Core & Legs (2) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
 Finally, leg animations from frame to frame are computed using spherical interpolation (SLERP).

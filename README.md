@@ -98,7 +98,7 @@ First, we create an arbitrary amount of obstacles for the TetRobot to navigate a
 
 * A radius, $$r$$, which dictates how big the obstacle is
 * $$x$$ and $$y$$ coordinates which serves as the center of the obstacle; these coordinates are confined to the "play area" (also taking into account the radius size)
-* Before obstalce instantiation, we make sure that another already existing obstacle occupies the same space
+* Before obstalce instantiation, we make sure that another already existing obstacle does not occupy the same space
 
 After all obstacle objects are created and kept track of in our array, we can now use A* search algorithm to create a path the TetRobot can take to reach the user's cursor location. A* will originally consider our three possible moves: right, left, and opposite and will explore the best of these possibilities using the following formula:
 <br />

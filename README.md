@@ -109,7 +109,7 @@ $$f(n) = g(n) + h(n)$$
 Where:
 * $$g(n)$$ is the actual cost of the path to go from the starting point to the current point, $$n$$
 * $$h(n)$$ is the estimated cost of the path to go from the current point, $$n$$ to the goal point
-* $$f(n)$$ is the evaluation metric, the sum of the actual cost so far $$g(n)$$ and the estimated future cost $$h(n)$$. Smaller $$f(n)$$ values are explored first
+* $$f(n)$$ is the evaluation metric, the sum of the actual cost so far $$g(n)$$ and the estimated future cost $$h(n)$$; smaller $$f(n)$$ values are explored first
 
 Note that the starting point is defined as the center of the TetRobot core, with the $$z$$ value set to $$0$$ (for simplicity). The point $$n$$ mentioned above is the center of the TetRobot core after a right, left, or opposite move also with a $$z$$ value of 0. We've computed $$h(n)$$ using euclidean distance from $$n$$ to the mouse's location (which Processing gives functionality for) with the same convention that the $$z$$ value is set to 0.
 <br />

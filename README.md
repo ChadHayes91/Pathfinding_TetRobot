@@ -55,6 +55,7 @@ Since we are inevitably animating a robot with legs instead of only a large tetr
 <br />
 Next, we need to attach legs to each of the four vertices in our TetRobot core which involves some inverse kinematics calculations. Consider the vector HF which spans from a hip vertex (H) to the location of its closest corresponding "foot" (F). A "hip" vertex is one of the four vertices which define the TetRobot core. A "foot" point is one of the four vertices of the large, non-rendered tetrahedron. A straight line from the hip to its closest corresponding foot is first constructed.
 <br />
+<br />
 Here are some images of the TetRobot core as well as the large tetrahedron from previous phases. As mentioned previously, the large tetrahedron will not be rendered in the final phase and is simply used to compute locations of the TetRobot's feet. At this point in time, the legs are not bent, but the images will help visualize what's going on.
 
 <p align="center">
@@ -62,8 +63,8 @@ Here are some images of the TetRobot core as well as the large tetrahedron from 
   <img width="275" height="300" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/P2_Core_2.PNG?raw=true">
 </p>
 <p align = "center">
-   Figure 4: TetRobot Core & Legs (1) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   Figure 5: TetRobot Core & Legs (2) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   Figure 4: TetRobot Core & Legs (1) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   Figure 5: TetRobot Core & Legs (2) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
 However, using a leg as a straight line looks terribly unnatural, so we need to construct a bent leg. In order create a bent leg, consider the following steps:

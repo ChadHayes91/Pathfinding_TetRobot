@@ -37,8 +37,8 @@ Where:
 * $$U$$ is the vector we are rotating
 * $$\underline{V}$$ is the axis of rotation; this is represented as a normalized vector (its magnitude is 1)
 * $$\alpha$$ is the angle that we're rotating $$U$$ around $$\underline{V}$$ 
-* $$\times$$ represents the cross product operation
-* $$\cdot$$ represents the dot product operation
+* $$\times$$ represents the cross product operation (defined between two vectors in three dimensions)
+* $$\cdot$$ represents the dot product operation (defined between two vectors)
 * $$W$$ is the resulting vector after rotating $$U$$ around $$\underline{V}$$ for $$\alpha$$ radians
 
 In our example, consider the vector (or edge of our base equilateral triangle) that does not move at all during rotation. We can use normalize this vector and use it as our axis of rotation. Let's call this vector AB (where A and B are two vertices). We can name the top vertex T and consider the vector AT, this will be the vector we are rotating. Finally, we need to find $$\alpha$$; which can be done by taking the dot product of vector AT and the vector AF where F is vertex T's final location after fully rotating calculated in the previous phase. Since the dot product can be interpreted in multiple ways: $$AT \cdot AF = AT.x * AF.x + AT.y * AF.y + AT.z * AF.z = \|AT\| \|AF\| cos(\alpha)$$, we can back into the angle between these two vectors. We can then divide $$\alpha$$ by the time between each frame to find where vector AT should be rendered at each frame. We can repeat this same process for the other moving vertex.
@@ -74,6 +74,17 @@ In the figure above:
 * Orange Vector: represents the up vector $$\underline{U}$$
 * Red Vector: represents the vector $$N$$ outlined above: $$N = HF \times \underline{U}$$
 * Green Vector: represents the vector $$T$$ outlined above: $$T = HF \times N$$
+
+Additionally, here are some images of the TetRobot core as well as the large tetrahedron from previous phases. As mentioned previously, the large tetrahedron will not be rendered in the final phase and is simply used to compute locations of the TetRobot's feet.
+
+<p align="center">
+  <img width="200" height="200" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/P2_RobotCore.PNG?raw=true">
+  <img width="200" height="200" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/P2_Core_2.PNG?raw=true">
+</p>
+<p align = "center">
+   Figure 5: TetRobot Core \& Legs (1) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   Figure 6: TetRobot Core \& Legs (2) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
 
 Finally, leg animations from frame to frame are computed using spherical interpolation (SLERP).
 

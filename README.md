@@ -53,7 +53,20 @@ Note that the formula I've used above uses the right-hand rule and the linked vi
 Since we are inevitably animating a robot with legs instead of only a large tetrahedron, we no longer need to render the entire tetrahedron shown in the images above. We still compute the start and ending position of all vertices like the large tetrahedron was still there, but we now replace what's really rendered with a smaller tetrahedron centered around the centroid of the previous large tetrahedron. This new, smaller tetrahedron is used as the robot's core (now called TetRobot's core) where we will attach legs to. Legs will eventually attached to each of the four vertices of the TetRobot core and span to the location of the vertices of the large, non-rendered tetrahedron. Computations for the TetRobot's core movement are conducted in the same manner as the ones mentioned above used for the large tetrhedron, but simply on a smaller scale.
 <br />
 <br />
-Next, we need to attach legs to each of the four vertices in our TetRobot core which involves some inverse kinematics calculations. Consider the vector HF which spans from a hip vertex (H) to the location of its closest corresponding "foot" (F). A "hip" vertex is one of the four vertices which define the TetRobot core. A "foot" point is one of the four vertices of the large, non-rendered tetrahedron. A straight line from the hip to its closest corresponding foot is first constructed. However, using a leg as a straight line looks terribly unnatural, so we need to construct a bent leg. In order create a bent leg, consider the following steps:
+Next, we need to attach legs to each of the four vertices in our TetRobot core which involves some inverse kinematics calculations. Consider the vector HF which spans from a hip vertex (H) to the location of its closest corresponding "foot" (F). A "hip" vertex is one of the four vertices which define the TetRobot core. A "foot" point is one of the four vertices of the large, non-rendered tetrahedron. A straight line from the hip to its closest corresponding foot is first constructed.
+<br />
+Here are some images of the TetRobot core as well as the large tetrahedron from previous phases. As mentioned previously, the large tetrahedron will not be rendered in the final phase and is simply used to compute locations of the TetRobot's feet. At this point in time, the legs are not bent, but the images will help visualize what's going on.
+
+<p align="center">
+  <img width="275" height="300" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/P2_RobotCore.PNG?raw=true">
+  <img width="275" height="300" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/P2_Core_2.PNG?raw=true">
+</p>
+<p align = "center">
+   Figure 4: TetRobot Core & Legs (1) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   Figure 5: TetRobot Core & Legs (2) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+However, using a leg as a straight line looks terribly unnatural, so we need to construct a bent leg. In order create a bent leg, consider the following steps:
 
 * Consider an arbitrary up vector named $$\underline{U}$$ with magnitude 1: $$\underline{U} = (0, 0, 1)$$
 * Compute the cross product $$HF \times \underline{U} = N$$
@@ -67,24 +80,13 @@ Next, we need to attach legs to each of the four vertices in our TetRobot core w
   <img width="400" height="400" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/Double_Cross_P3_Vis.PNG?raw=true">
 </p>
 <p align = "center">
-   Figure 4: Bent Leg Computations &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <br />
+   Figure 6: Bent Leg Computations &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <br />
 </p>
 In the figure above:
 * Blue Vector: represents the hip to foot (HF) vector
 * Orange Vector: represents the up vector $$\underline{U}$$
 * Red Vector: represents the vector $$N$$ outlined above: $$N = HF \times \underline{U}$$
 * Green Vector: represents the vector $$T$$ outlined above: $$T = HF \times N$$
-
-Additionally, here are some images of the TetRobot core as well as the large tetrahedron from previous phases. As mentioned previously, the large tetrahedron will not be rendered in the final phase and is simply used to compute locations of the TetRobot's feet.
-
-<p align="center">
-  <img width="275" height="300" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/P2_RobotCore.PNG?raw=true">
-  <img width="275" height="300" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/P2_Core_2.PNG?raw=true">
-</p>
-<p align = "center">
-   Figure 5: TetRobot Core & Legs (1) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   Figure 6: TetRobot Core & Legs (2) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</p>
 
 Finally, leg animations from frame to frame are computed using spherical interpolation (SLERP).
 

@@ -87,7 +87,8 @@ In the figure above:
 * Blue Vector: represents the hip to foot (HF) vector
 * Orange Vector: represents the up vector $$\underline{U}$$
 * Red Vector: represents the vector $$N$$ outlined above: $$N = HF \times \underline{U}$$
-* Green Vector: represents the vector $$T$$ outlined above: $$T = HF \times N$$
+* Green Vector: represents the vector $$T$$ outlined above: $$T = HF \times N$$; $$T$$ is what we are searching for
+* Remember, $$T$$ will be normalized; the point of $$T$$ is to find the direction we should go in order to create a knee
 
 Finally, leg animations from frame to frame are computed using spherical interpolation (SLERP).
 

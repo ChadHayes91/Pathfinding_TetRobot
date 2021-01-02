@@ -92,10 +92,37 @@ In the figure above:
 
 Finally, leg animations from frame to frame are computed using spherical interpolation (SLERP).
 
-#### Phase Four: Pathfinding Using A*
+#### Phase Four: Obstacles & Pathfinding Using A*
 
+First, we create an arbitrary amount of obstacles for the TetRobot to navigate around. We create an array which stores these obstalce objects and randomly generates the following attributes:
 
+* A radius, $$r$$, which dictates how big the obstacle is
+* $$x$$ and $$y$$ coordinates which serves as the center of the obstacle; these coordinates are confined to the "play area" (also taking into account the radius size)
+* Before obstalce instantiation, we make sure that another already existing obstacle occupies the same space
 
-### Video Demonstration
+<br />
+<br />
+
+After all obstacle objects are created and kept track of in our array, we can now use A* search algorithm to create a path the TetRobot can take to reach the user's cursor location. A* will originally consider our three possible moves: right, left, and opposite and will explore the best of these possibilities using the following formula:
+<br />
+<br />
+$$f(n) = g(n) + h(n)$$
+<br />
+<br />
+Where:
+* $$g(n)$$ is the actual cost of the path to go from the starting point to the current point, $$n$$
+* $h(n)$$ is the estimated cost of the path to go from the current point, $$n$$ to the goal point
+* $$f(n)$$ is the evaluation metric, the sum of the actual cost so far $$g(n)$$ and the estimated future cost $$h(n)$$. Smaller $$f(n)$$ values are explored first
+<br />
+<br />
+Note that the starting point is defined as the center of the TetRobot core, with the $$z$$ value set to $$0$$ (for simplicity). The point $$n$$ mentioned above is the center of the TetRobot core after a right, left, or opposite move also with a $$z$$ value of 0. We've computed $$h(n)$$ using euclidean distance from $$n$$ to the mouse's location (which Processing gives functionality for) with the same convention that the $$z$$ value is set to 0.
+<br />
+<br />
+Finally, we implemented a number of checks to make sure a move is valid:
+* A right, left, or opposite move is only considered if all obstacles will not intersect with the large tetrahedron (which is a good representation for the size of our TetRobot)
+* A move has reached our goal if the mouse's location is inside the large tetrahedron under our TetRobot
+* No pathfinding will occur if the user's mouse location is off the "play area" or if the user's mouse location is inside an obstacle; the TetRobot will just remain idle if this happens
+
+### Video Demonstration (Final Product)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RLJW0QGB1VQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

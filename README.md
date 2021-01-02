@@ -59,7 +59,7 @@ Next, we need to attach legs to each of the four vertices in our TetRobot core w
 * Compute the cross product $$HF \times \underline{U} = N$$
 * Compute yet another cross product: $$HF \times N = T$$
 * The vector $$T$$ points in the direction we're interested in
-* Finally, normalize $$T$$ and multiply it by the scalar $$\big(\|HF\| * 0.6 \big) \underline{T} = K$$
+* Finally, normalize $$T$$ and multiply it by the scalar $$\big(\|HF\| * c \big) \underline{T} = K$$; $$c$$ is a constant we've found to make the leg a reasonable length (its close to 0.5)
 * K is now the geometric point of our knee; we can now store and render vectors $$HK$$ and $$KF$$ (hip to knee and knee to foot)
 * This process is repeated for all four legs; I've provided a visualization below
 

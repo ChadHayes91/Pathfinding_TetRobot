@@ -7,7 +7,7 @@ Link to Code: [https://github.com/ChadHayes91/Graphics_AStar_TetRobot](https://g
 This general goal of this project is to create an almost spider-looking robot that pathfinds to the user's mouse location. Movement is constrained to only three directions: right, left, or opposite, which is accomplished by the regular tetrahedron core "tumbling" from the top-most vertex (the only vertex in a tetrahedron which is not a part of the base equilateral triangle). This project was split into four "phases" which start simply and build off each other which I've outlined below. The end result of this project (and its final visualization) can be found in the YouTube video posted at the bottom of this page. 
 
 #### Phase One: Base Tetrahedron Creation and Movement Computations
-We start by creating a circle of radius 200 (200 units in Processing) centered at the origin (point (0, 0, 0)) and create the three vertices at each 120 degree increment (120 or $$\frac{2\pi}{3}$$, 240 or $$\frac{4\pi}{3}$$, 360 degrees or $$2\pi$$ radians). These three vertices form an equilateral triangle which can serve as the base for the regular tetrahedron. This uses the fact that an equilateral triangle can be inscribed inside a circle. The final vertex (the top vertex) of this tetrahderon can be computed by applying the pythagorean theorem: $$s \times \sqrt{\frac{2}{3}}$$ where $$s$$ is the length of an arbitrary side of our base equilateral triangle (since all sides have the same length). Finally, the centroid of this tetrahedron is computed by taking the arithmetic average of all four vertices, or in other words, the geometric point which computed by taking the average of all $$x$$, $$y$$, and $$z$$ coordinates.
+We start by creating a circle of radius 200 (200 units in Processing) centered at the origin (point (0, 0, 0)) and create the three vertices at each 120 degree increment (120 or $$\frac{2\pi}{3}$$, 240 or $$\frac{4\pi}{3}$$, 360 degrees or $$2\pi$$ radians). These three vertices form an equilateral triangle which can serve as the base for the regular tetrahedron. This uses the fact that an equilateral triangle can be inscribed inside a circle. The final vertex (the top vertex) of this tetrahedron can be computed by applying the Pythagorean theorem: $$s \times \sqrt{\frac{2}{3}}$$ where $$s$$ is the length of an arbitrary side of our base equilateral triangle (since all sides have the same length). Finally, the centroid of this tetrahedron is computed by taking the arithmetic average of all four vertices, or in other words, the geometric point which computed by taking the average of all $$x$$, $$y$$, and $$z$$ coordinates.
 
 I've provided below visualizations of the three possible movements: right, left, and opposite. The grey tetrahedron is the ending position and each vertex is colored to visually show how each vertex changes positions.
 
@@ -24,7 +24,7 @@ I've provided below visualizations of the three possible movements: right, left,
 
 Computing a move is simple:  one of the edges of the original tetrahedron remains the same (and therefore, two vertices remain in the same position), and since we need to maintain a base equilateral triangle, we can rotate the unmoving edge 60 degrees to find the location of the final vertex in the base equilateral triangle. We rotate 60 degrees since all angles in an equilateral triangle are exactly 60 degrees. Now that we know the location of the three vertices which form the base equilateral triangle, we can re-compute the location of the top vertex using the same formula $$\big(s \times \sqrt{\frac{2}{3}}\big)$$ mentioned above.
 
-Note the formula for rotating a vector around a point with an accompanying explaination and proof can be found here:
+Note the formula for rotating a vector around a point with an accompanying explanation and proof can be found here:
 [https://matthew-brett.github.io/teaching/rotation_2d.html](https://matthew-brett.github.io/teaching/rotation_2d.html)
 
 #### Phase Two: Tetrahedron Animation
@@ -50,7 +50,7 @@ Note that the formula I've used above uses the right-hand rule and the linked vi
 
 #### Phase Three: Leg & Knee Computations
 
-Since we are inevitably animating a robot with legs instead of only a large tetrahedron, we no longer need to render the entire tetrahedron shown in the images above. We still compute the start and ending position of all vertices like the large tetrahedron was still there, but we now replace what's really rendered with a smaller tetrahedron centered around the centroid of the previous large tetrahedron. This new, smaller tetrahedron is used as the robot's core (now called TetRobot's core) where we will attach legs to. Legs will eventually attached to each of the four vertices of the TetRobot core and span to the location of the vertices of the large, non-rendered tetrahedron. Computations for the TetRobot's core movement are conducted in the same manner as the ones mentioned above used for the large tetrhedron, but simply on a smaller scale.
+Since we are inevitably animating a robot with legs instead of only a large tetrahedron, we no longer need to render the entire tetrahedron shown in the images above. We still compute the start and ending position of all vertices like the large tetrahedron was still there, but we now replace what's really rendered with a smaller tetrahedron centered around the centroid of the previous large tetrahedron. This new, smaller tetrahedron is used as the robot's core (now called TetRobot's core) where we will attach legs to. Legs will eventually attached to each of the four vertices of the TetRobot core and span to the location of the vertices of the large, non-rendered tetrahedron. Computations for the TetRobot's core movement are conducted in the same manner as the ones mentioned above used for the large tetrahedron, but simply on a smaller scale.
 <br />
 <br />
 Next, we need to attach legs to each of the four vertices in our TetRobot core which involves some inverse kinematics calculations. Consider the vector HF which spans from a hip vertex (H) to the location of its closest corresponding "foot" (F). A "hip" vertex is one of the four vertices which define the TetRobot core. A "foot" point is one of the four vertices of the large, non-rendered tetrahedron. A straight line from the hip to its closest corresponding foot is first constructed.
@@ -94,11 +94,11 @@ Finally, leg animations from frame to frame are computed using spherical interpo
 
 #### Phase Four: Obstacles & Pathfinding Using A*
 
-First, we create an arbitrary amount of obstacles for the TetRobot to navigate around. We create an array which stores these obstalce objects and randomly generates the following attributes:
+First, we create an arbitrary amount of obstacles for the TetRobot to navigate around. We create an array which stores these obstacle objects and randomly generates the following attributes:
 
 * A radius, $$r$$, which dictates how big the obstacle is
 * $$x$$ and $$y$$ coordinates which serves as the center of the obstacle; these coordinates are confined to the "play area" (also taking into account the radius size)
-* Before obstalce instantiation, we make sure that another already existing obstacle does not occupy the same space
+* Before obstacle instantiation, we make sure that another already existing obstacle does not occupy the same space
 
 After all obstacle objects are created and kept track of in our array, we can now use A* search algorithm to create a path the TetRobot can take to reach the user's cursor location. A* will originally consider our three possible moves: right, left, and opposite and will explore the best of these possibilities using the following formula:
 <br />
@@ -111,7 +111,7 @@ Where:
 * $$h(n)$$ is the estimated cost of the path to go from the current point, $$n$$ to the goal point
 * $$f(n)$$ is the evaluation metric, the sum of the actual cost so far $$g(n)$$ and the estimated future cost $$h(n)$$; smaller $$f(n)$$ values are explored first
 
-Note that the starting point is defined as the center of the TetRobot core, with the $$z$$ value set to $$0$$ (for simplicity). The point $$n$$ mentioned above is the center of the TetRobot core after a right, left, or opposite move also with a $$z$$ value of 0. We've computed $$h(n)$$ using euclidean distance from $$n$$ to the mouse's location (which Processing gives functionality for) with the same convention that the $$z$$ value is set to 0.
+Note that the starting point is defined as the center of the TetRobot core, with the $$z$$ value set to $$0$$ (for simplicity). The point $$n$$ mentioned above is the center of the TetRobot core after a right, left, or opposite move also with a $$z$$ value of 0. We've computed $$h(n)$$ using Euclidean distance from $$n$$ to the mouse's location (which Processing gives functionality for) with the same convention that the $$z$$ value is set to 0.
 <br />
 <br />
 Finally, we implemented a number of checks to make sure a move is valid:
